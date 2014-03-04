@@ -9,6 +9,7 @@ https://chrome.google.com/webstore/detail/bjjgodajjgmjpgjhbphdnjjhpldkgjbk/publi
 This will also require you to add a php file to your pbx server to  accept the incoming request and to make a manager user which you will enter in the php file.
 
 Download PHP File from github named call.php
+
 Please note that your FreePBX server must have PHP installed.
 
 If you installed the native FreePBX distro you are probably on CentOS and need to run this command:
