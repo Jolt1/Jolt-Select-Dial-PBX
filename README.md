@@ -11,7 +11,7 @@ This will also require you to add a php file to your pbx server to  accept the i
 Download PHP File from github named call.php
 Please note that your FreePBX server must have PHP installed.
 
-If you installed the native FreePBX distro you are probablyCentOS and need to run this command:
+If you installed the native FreePBX distro you are probably on CentOS and need to run this command:
 	sudo yum install php
 If you are on Ubuntu the command  would be:
 	sudo apt-get install php5
