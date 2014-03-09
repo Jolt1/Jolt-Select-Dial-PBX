@@ -35,9 +35,9 @@ $number = str_replace(",","",$number);
 $number = preg_replace("/[^0-9,.]/", "", $number);
 
 
-//Line 40 adds a 1 before the number if its not there...
-//You can remove this if you already added this into your outbound route or you dont need a 1
-#if(substr($number,0,1) != 1){$number = "1".$number;}
+//Line 40 adds a 1 before the number if its not there already...
+//You can remove this if you already added this into your outbound route or you dont need a 1. 
+//if(substr($number,0,1) != 1){$number = "1".$number;}
  
 $pos=strpos ($number,"local");
 if ($number == null) :
@@ -46,7 +46,7 @@ endif ;
 if ($pos===false) :
 $errno=0 ;
 $errstr=0 ;
-$strCallerId = "Web Call $number <$number>";
+$strCallerId = "Web Call <$number>";
 $oSocket = fsockopen ("localhost", 5038, &$errno, &$errstr, 20);
 if (!$oSocket) {
 echo "$errstr ($errno)<br>\n";
