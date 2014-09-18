@@ -47,7 +47,7 @@ if ($pos===false) :
 $errno=0 ;
 $errstr=0 ;
 $strCallerId = "Web Call <$number>";
-$oSocket = fsockopen ("localhost", 5038, &$errno, &$errstr, 20);
+$oSocket = fsockopen ("localhost", 5038, $errno, $errstr, 20);
 if (!$oSocket) {
 echo "$errstr ($errno)<br>\n";
 } else {
