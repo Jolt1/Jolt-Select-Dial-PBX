@@ -43,7 +43,7 @@ if ($pos===false) :
 $errno=0 ;
 $errstr=0 ;
 
-//OPEN CNAM LOOKUP<br />
+//OPEN CNAM LOOKUP
 $callerid =  file_get_contents("https://api.opencnam.com/v2/phone/".$number);
 $strCallerId = $callerid." <$number>";
 
