@@ -7,7 +7,11 @@ $strSecret = "pass123"; #specify the password for the above user
 
 
 $strHost = "127.0.0.1";
-$ext = $_REQUEST['exten'];
+//Clean up EXT
+$ext = $_GET['exten'];
+$ext = filter_var($ext, FILTER_SANITIZE_NUMBER_INT);
+$ext = preg_replace("/[^0-9,.]/", "", $ext);
+
 $strChannel = "SIP/".$ext;
 $strContext = "from-internal";
 #specify the amount of time you want to try calling the specified channel before hangin up
@@ -16,22 +20,14 @@ $strWaitTime = "30";
 $strPriority = "1";
 #specify the maximum amount of retries
 $strMaxRetry = "2";
+
 if(isset($_GET['number'])){
 $number=strtolower($_GET['number']);}
 elseif(isset($_GET['phone'])){
 $number=strtolower($_GET['phone']);
 }
-
 //Clean up number
-$number = str_replace("-","",$number);
-$number = str_replace(" ","",$number);
-$number = str_replace(") ","",$number);
-$number = str_replace(")","",$number);
-$number = str_replace("(","",$number);
- $number = preg_replace('/[^(\x20-\x7F)]*/','', $number); 
-
-$number = str_replace(".","",$number); 
-$number = str_replace(",","",$number); 
+$number = filter_var($number, FILTER_SANITIZE_NUMBER_INT);
 $number = preg_replace("/[^0-9,.]/", "", $number);
 
 
