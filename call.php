@@ -42,7 +42,11 @@ endif ;
 if ($pos===false) :
 $errno=0 ;
 $errstr=0 ;
-$strCallerId = "Web Call <$number>";
+
+//OPEN CNAM LOOKUP<br />
+$callerid =  file_get_contents("https://api.opencnam.com/v2/phone/".$number);
+$strCallerId = $callerid." <$number>";
+
 $oSocket = fsockopen ("localhost", 5038, $errno, $errstr, 20);
 if (!$oSocket) {
 echo "$errstr ($errno)<br>\n";
