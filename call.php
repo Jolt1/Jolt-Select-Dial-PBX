@@ -14,12 +14,9 @@ $ext = preg_replace("/[^0-9,.]/", "", $ext);
 
 $strChannel = "SIP/".$ext;
 $strContext = "from-internal";
-#specify the amount of time you want to try calling the specified channel before hangin up
-$strWaitTime = "30";
-#specify the priority you wish to place on making this call
+$strWaitTime = "30"; #Wait Time before hangin up
 $strPriority = "1";
-#specify the maximum amount of retries
-$strMaxRetry = "2";
+$strMaxRetry = "2"; #maximum amount of retries
 
 if(isset($_GET['number'])){
 $number=strtolower($_GET['number']);}
@@ -31,8 +28,7 @@ $number = filter_var($number, FILTER_SANITIZE_NUMBER_INT);
 $number = preg_replace("/[^0-9,.]/", "", $number);
 
 
-//Line 40 adds a 1 before the number if its not there already...
-//You can remove this if you already added this into your outbound route or you dont need a 1. 
+//The following line adds a 1 before the number if its not there already... You can remove this if you already added this into your outbound route or you dont need a 1. 
 //if(substr($number,0,1) != 1){$number = "1".$number;}
  
 $pos=strpos ($number,"local");
