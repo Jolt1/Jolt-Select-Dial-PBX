@@ -40,7 +40,7 @@ $errno=0 ;
 $errstr=0 ;
 
 //OPEN CNAM LOOKUP
-$callerid =  file_get_contents("https://api.opencnam.com/v2/phone/".$number);
+$callerid = @file_get_contents("https://api.opencnam.com/v2/phone/".$number) or $callerid = "Web Call";
 $strCallerId = $callerid." <$number>";
 
 $oSocket = fsockopen ("localhost", 5038, $errno, $errstr, 20);
